@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструктор по ноутбукам Huawei</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Используем современный шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Триколор: Чёрный, яркий красный и белый */
+        :root {
+            --primary: #000;
+            /* Чёрный */
+            --accent: #d64206;
+            /* Яркий красный/оранжевый */
+            --light: #fff;
+            /* Белый */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            /* Стандартный синтаксис */
+            -webkit-user-select: none;
+            /* Для Chrome, Safari, Opera */
+            -moz-user-select: none;
+            /* Для Firefox */
+            -ms-user-select: none;
+            /* Для IE/Edge */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, #1a1a1a, #000);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Анимация фонового перелива */
+        @keyframes bgPulse {
+            0% {
+                background: radial-gradient(circle at top, #1a1a1a, #000);
+            }
+
+            100% {
+                background: radial-gradient(circle at bottom, #2a2a2a, #000);
+            }
+        }
+
+        body {
+            animation: bgPulse 10s infinite alternate ease-in-out;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(214, 66, 6, 0.7);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--accent), var(--light), var(--accent));
+            background-size: 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: colorShift 8s infinite ease-in-out;
+            position: relative;
+        }
+
+        /* Дополнительное свечение для заголовка */
+        header h1::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 3rem;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--accent), var(--light), var(--accent));
+            background-size: 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: blur(8px);
+            opacity: 0.7;
+            animation: colorShift 8s infinite ease-in-out;
+        }
+
+        @keyframes colorShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #ccc;
+        }
+
+        /* HERO-SECTION */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero button,
+        .hero a.button-link {
+            background: var(--accent);
+            color: var(--light);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(214, 66, 6, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hero button:hover,
+        .hero a.button-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(214, 66, 6, 1);
+        }
+
+        /* Секция с описанием функционала (интерактивные блоки) */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .feature {
+            background: rgba(30, 30, 30, 0.95);
+            padding: 20px;
+            flex: 1 1 300px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(214, 66, 6, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 0 30px rgba(214, 66, 6, 0.8);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Интерактивный блок инструкций */
+        .instructions {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .instructions h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .instruction-box {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(214, 66, 6, 0.6);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .instruction-box:hover {
+            transform: translateX(10px);
+        }
+
+        .instruction-box ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .instruction-box li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: #111;
+            border-top: 2px solid var(--accent);
+            color: #aaa;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--light);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero button,
+            .hero a.button-link {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+
+            .feature,
+            .instruction-box {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 data-text="Инструктор по ноутбукам Huawei">Инструктор по ноутбукам Huawei</h1>
+            <p>Ваш умный помощник для генерации фактов, преимуществ и скриптов продаж</p>
+        </header>
+
+        <section class="hero">
+            <p>Наш бот помогает генерировать уникальные ответы по теме ноутбуков Huawei – от интересных фактов до
+                мотивации для продаж.</p>
+            <button onclick="toggleInstructions()">Как пользоваться?</button>
+            <br><br> <!-- Двойной перенос строки, чтобы кнопка оказалась ниже -->
+            <a class="button-link"
+                href="https://chatgpt.com/g/g-67c15240c9fc8191bd49b0e8b746675b-instruktor-po-noutbukam-khuavei"
+                target="_blank">Перейти к боту</a>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <h3>Уникальные факты</h3>
+                <p>Каждый запрос возвращает новый интересный факт о ноутбуках Huawei, основанный на актуальных данных.
+                </p>
+            </div>
+            <div class="feature">
+                <h3>Преимущества и Скрипты</h3>
+                <p>Генерируйте преимущества, продающие скрипты для разных отделов и аргументы для покупки аксессуаров.
+                </p>
+            </div>
+            <div class="feature">
+                <h3>Мотивация</h3>
+                <p>Получайте краткие мотивационные сообщения для повышения продаж и роста дохода.</p>
+            </div>
+        </section>
+
+        <section class="instructions" id="instructionsSection" style="display:none;">
+            <h2>Как пользоваться ботом?</h2>
+            <div class="instruction-box">
+                <h3>Запросы и Ответы</h3>
+                <ul>
+                    <li>Любой запрос возвращает структурированный ответ в формате:</li>
+                    <ul>
+                        <li>(A) Интересный факт</li>
+                        <li>(B) Три преимущества</li>
+                        <li>(C) Два скрипта для отдела ноутбуков</li>
+                        <li>(D) Один скрипт для другого отдела</li>
+                        <li>(E) Три преимущества комплекта с аксессуарами</li>
+                        <li>(F) Мотивация</li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="instruction-box">
+                <h3>Специальный триггер</h3>
+                <ul>
+                    <li>При запросе "фишки Huawei" бот выдаст новую порцию информации по заданной структуре.</li>
+                </ul>
+            </div>
+            <div class="instruction-box">
+                <h3>Пример использования</h3>
+                <ul>
+                    <li>Напишите: "Расскажи о преимуществах ноутбуков Huawei"</li>
+                    <li>Или: "фишки Huawei"</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Инструктор по ноутбукам Huawei | Связь: <a href="mailto:ya@Alexkyubi.ru">ya@Alexkyubi.ru</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleInstructions() {
+            const instr = document.getElementById('instructionsSection');
+            if (instr.style.display === "none") {
+                instr.style.display = "block";
+                instr.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                instr.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
